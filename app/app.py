@@ -1,27 +1,17 @@
 # Import packages
-from dash import Dash, html, dcc
 import dash 
-import plotly.express as px
-import plotly.io as pio
-import pandas as pd
-import numpy as np 
-
-# Unterschied dash - Dash - pcc usw. 
+from dash import Dash, html, dcc
+from components import sidebar
 
 # Initialize the app
 app = Dash(use_pages=True)
 
 # App layout
-
 app.layout = html.Div(children=[
-    html.H1('Portfolio Manager'),
-    html.Div(
-        [dcc.Link(children=page["name"], href=page["path"]) for page in dash.page_registry.values()]
-        ),
+    sidebar.sidebar(dash.page_registry.values()),
     dash.page_container
-
-])
+], className="main-container")
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
