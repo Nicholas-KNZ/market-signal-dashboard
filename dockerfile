@@ -1,10 +1,17 @@
-# Dockerfile für PostgreSQL
-FROM postgres:latest
+# Python 
 
-# Setze Standard-Umgebungsvariablen (kann beim Start überschrieben werden)
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=MeinStarkesPasswort
-ENV POSTGRES_DB=mydatabase
+FROM python:3.12-slim
+WORKDIR /app
 
-# Optional: SQL-Dateien ins Image kopieren, z.B. für Schema oder Initialdaten
-# COPY ./init.sql /docker-entrypoint-initdb.d/
+# Install Python dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy Python app
+COPY app ./app
+
+
+EXPOSE 8050
+
+# Run Dash app
+CMD ["python", "app/app.py"]
