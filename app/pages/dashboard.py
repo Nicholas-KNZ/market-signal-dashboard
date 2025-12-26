@@ -32,6 +32,7 @@ fig = px.pie(df_pie, values='Wert', names='Symbol', title='Portfolio Pie Chart')
 # App layout
 
 layout = html.Div(children=[
+    html.H1(children="Test", className="test"),
     html.Div(children = [
         value.valueCard("Portfolio Value", portfolioValue),
         value.valueCard("Dividends", portfolioValue)],className="dashboard-parent"),

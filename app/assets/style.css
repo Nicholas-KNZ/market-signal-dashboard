@@ -1,148 +1,100 @@
-/*            */
-/* Every Page */
-/*            */
+:root {
+    /* Black */
+    --black-default: #0c0c0c;   /* Haupthintergrund */
+    --black-panels: #191919;  /* Panels / Cards  */
+    --black-panel-on-panels: #2d2e33;    /* Panels on Panels  */
+    
+
+    /* Purple */
+    --purple-default: #A78BFA;   /* Akzentfarbe */
+    --purple-light:  #D8B4FE;     /* Text oder SekundÃ¤rfarbe */
+    --purple-dark: #8B5CF6;      /* SekundÃ¤r Purpur */
+
+    /* Weiß */ 
+    --white: white;     /* Schriftfarbe */
+
+    /* Green */ 
+    --green: #4ADE80;     /* Preis steigt */
+
+    /* Rot */ 
+    --red: #F87171;     /* Preis fÃ¤llt */
+}
 
 body {
+    background-color: var(--black-default);
+    font-family: Arial, sans-serif;
+    color: white;
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3, p {
-    color: white;
-}
-
 .main-container {
-    background-color: #1e2a38;  
-    height: 100vh;
     display: flex;
-    font-family: Arial, sans-serif;
-    color: white;
+    gap: 25px;
 }
 
-/*           */
-/* Container */
-/*           */
+/* Components */ 
 
-/* Glass card container */
-.glass-card {
-    backdrop-filter: blur(15px);
-    background-color: rgba(30, 42, 56, 0.6); 
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 400px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-/* Glass on Hover */
-.glass-card:hover .side-bar-link:hover{
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Headings inside glass cards */
-.glass-card h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: white;
-}
+/*             */
+/* Main Page */
 
 
-/*                           */
-/*     Special Components   */
-/*                        */
-
-/*    Two Column Dashboard   */
-.dashboard-parent {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 100px;
-}
-
-.chart-card {
-    flex: 1;
-}
-
-/*     Transaction List   */
-.transactions-header,
-.transaction-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for the 4 fields */
-    gap: 10px;
-    padding: 10px 0;
-}
-
-.transactions-header {
-    font-weight: bold;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.transaction-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* space between rows */
-}
-
-.glass-card-transaction {
-    backdrop-filter: blur(15px);
-    background-color: rgba(30, 42, 56, 0.6); 
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 1500px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-
-
-
-
-
-
-#portfolioValue{
-    text-align: center;
-}
-
+/* Sidebar */
 .sidebar {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 0px;
-    width: 7.5%;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    text-align: center;
+    background-color: var(--black-panels);
+    display: flex;
+    flex-direction: column; /* stack header and links vertically */
+    width: 280px;
+    height: 100vh;
+    padding: 20px; /* padding inside sidebar */
+    box-sizing: border-box;
 }
 
-
-/* Input fields inside glass cards */
-.glass-input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 20px;
-    width: 80%;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    text-align: center;
+/* Header (button + text) */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* space between button and text */
+    padding-bottom: 20px; /* spacing between header and links */
 }
 
-/* Buttons inside glass cards */
-.glass-button .side-bar-link{
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
+/* Header button */
+.sidebar-button {
+    color: var(--white);
+    background-color: var(--black-panels);
     border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    padding: 10px 20px; /* reasonable padding */
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
+.sidebar-button:hover {
+    text-shadow: 0 0 8px var(--white);
+}
 
+/* Container for links */
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* spacing between links */
+}
+
+/* Individual link styling */
+.sidebar-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link:hover {
+    box-shadow: 0 0 10px var(--white); /* glow effect */
+    transform: scale(1.05); /* subtle hover pop */
+}
+
+/*             */
+/* Dashboard   */
