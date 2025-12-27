@@ -1,3 +1,16 @@
+from dash import html
+
+def chart(transactions):
+    return html.Div(
+        [
+            html.H4("Chart"),
+
+            
+        ],
+        className="glass-card-transaction"
+    )
+
+
 '''
 from dash  import html, dcc
 import plotly.graph_objs as go
